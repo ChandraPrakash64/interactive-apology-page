@@ -87,12 +87,20 @@
             position: absolute;
             inset: 0;
             border-radius: 30px;
-            background-image: url('/image.png');
+            /* Use user-added image.jpg as primary; fall back to optimized files if available */
+            background-image: url('image.jpg'), url('image-1600.webp'), url('image-1600.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.32; /* control transparency */
             z-index: 1;
             pointer-events: none;
+        }
+
+        /* Smaller image for mobile to reduce bandwidth */
+        @media (max-width: 600px) {
+            .container::before {
+                background-image: url('image-800.webp'), url('image-800.jpg'), url('image.jpg');
+            }
         }
 
         /* Ensure content sits above the background image */
