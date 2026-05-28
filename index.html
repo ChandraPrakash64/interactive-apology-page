@@ -68,6 +68,26 @@
             z-index: 10;
         }
 
+        /* Subtle repo image background inside the card */
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            background-image: url('/image.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.32; /* control transparency */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Ensure content sits above the background image */
+        .container > * {
+            position: relative;
+            z-index: 2;
+        }
+
         @keyframes floatIn {
             from {
                 opacity: 0;
@@ -244,6 +264,8 @@
             z-index: 999;
         }
 
+        /* image upload/preview removed per user request */
+
         @keyframes sparkleAnim {
             0% {
                 opacity: 1;
@@ -270,8 +292,11 @@
 
     <div class="container">
         <div id="mainText">I'm really sorry ❤️<br>Please forgive me 🥺</div>
+
+        
+
         <div class="buttons">
-            <button id="yesBtn">Okay baby, I forgive you 💖</button>
+            <button id="yesBtn">Okay, I forgive you 💖</button>
             <button id="noBtn">No, I'm still angry 😠</button>
         </div>
         <div id="clickCount"></div>
@@ -298,7 +323,7 @@
             "Life isn't the same without your smile 😢💖",
             "I promise to be better for you 🌟❤️",
             "Forgive me please? I'll buy you ice cream 🍦💕",
-            "I'm so so so sorry baby 😭❤️",
+            "I'm so so so sorry 😭❤️",
             "You deserve the world and I'll give it to you 🌹💖",
             "Pretty please with a cherry on top? 🍒🥺",
             "I'll never let you down again, I promise 💍❤️"
@@ -408,7 +433,7 @@
                 if (noClickCount <= 5) {
                     clickCount.innerHTML = `Come on... just click YES! 🥺 (Attempts: ${noClickCount})`;
                 } else if (noClickCount <= 10) {
-                    clickCount.innerHTML = `Please baby! I'm begging you! 😭 (Attempts: ${noClickCount})`;
+                    clickCount.innerHTML = `Please! I am really sorry! 😭 (Attempts: ${noClickCount})`;
                 } else {
                     clickCount.innerHTML = `I can do this all day! 💪❤️ (Attempts: ${noClickCount})`;
                 }
@@ -433,7 +458,7 @@
             if (noClickCount <= 5) {
                 clickCount.innerHTML = `Come on... just click YES! 🥺 (Attempts: ${noClickCount})`;
             } else if (noClickCount <= 10) {
-                clickCount.innerHTML = `Please baby! I'm begging you! 😭 (Attempts: ${noClickCount})`;
+                clickCount.innerHTML = `Please ! I'm really sorry 😭 (Attempts: ${noClickCount})`;
             } else {
                 clickCount.innerHTML = `I can do this all day! 💪❤️ (Attempts: ${noClickCount})`;
             }
@@ -446,7 +471,7 @@
             mainText.innerHTML = "Yay! You forgave me! 😍💖🥳";
             emojiContainer.innerHTML = "😊❤️💃🎉✨🥰💕🌟🎊💖🌹😘";
             emojiContainer.classList.remove('hidden');
-            clickCount.innerHTML = "I LOVE YOU SO MUCH! ❤️❤️❤️";
+            clickCount.innerHTML = "THANK YOU SO MUCH! ❤️❤️❤️";
             buttonsContainer.style.display = 'none';
 
             for (let i = 0; i < 30; i++) {
@@ -462,6 +487,8 @@
                 yesBtn.style.transform = `translateY(-8px) scale(${1.1 + (noClickCount * 0.05)})`;
             }
         }, 100);
+
+        
     </script>
 </body>
 </html>
