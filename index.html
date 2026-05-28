@@ -74,10 +74,13 @@
             position: absolute;
             inset: 0;
             border-radius: 30px;
-            background-image: url('/image.png');
+            /* Try relative paths so it works when served from a repo subpath (GitHub Pages)
+               Order matters: first attempts the repo-root relative, then local relative.
+            */
+            background-image: url('./image.png');
             background-size: cover;
             background-position: center;
-            opacity: 0.32; /* control transparency */
+            opacity: 0.12; /* control transparency */
             z-index: 1;
             pointer-events: none;
         }
